@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Photography — Keyun Xiao</title>
+<meta name="description" content="Photographs by Keyun Xiao, from Joshua Tree and Japan.">
+<style>
+/* layout: a flat four-across contact grid on the same paper as the index page,
+   captions held back until hover, everything else out of the way */
+:root{
+  --paper:#e8ece8;
+  --ink:#17201e;
+  --muted:#7b8a81;
+  --rule:#cfd6d0;
+  --sans:Arial,Helvetica,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{
+  margin:0;padding:0 2.2vw;background:var(--paper);color:var(--ink);
+  font:13px/1.35 var(--sans);min-height:100svh;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+
+/* ---- bars ---- */
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:30px 0}
+.bar--top{--topbar-h:84px;height:var(--topbar-h);padding:0;align-items:center;border-bottom:1px solid var(--rule)}
+.bar--foot{margin-top:auto;padding-bottom:30px;border-top:1px solid var(--rule);color:var(--muted)}
+.wordmark{display:inline-flex;align-items:center}
+.wordmark img{height:calc(var(--topbar-h) * .55);width:auto;display:block;transition:opacity .15s ease;transform-origin:50% 50%}
+.wordmark img.is-spinning{animation:logo-spin 1.15s cubic-bezier(.45,.05,.2,1)}
+@keyframes logo-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.wordmark:hover img,.wordmark:focus-visible img{opacity:.55}
+.bar nav{display:flex;gap:22px;font:11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.bar nav .here{color:var(--muted)}
+.folio{font:10px/1.4 'Courier New',monospace;letter-spacing:.08em}
+.back{font:11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.back:hover{color:var(--ink)}
+
+/* ---- grid ---- */
+main{padding:44px 0 56px}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 10px}
+.tile{
+  display:block;width:100%;padding:0;border:0;background:none;color:inherit;
+  font:inherit;cursor:pointer;text-align:left;
+}
+.frame{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{
+  display:block;margin-top:9px;min-height:1.2em;
+  font:11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  opacity:0;transition:opacity .18s ease;
+}
+.tile:hover .cap,.tile:focus-visible .cap{opacity:1}
+.tile:focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+
+/* ---- lightbox ---- */
+.lb{
+  position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--paper) 98%,transparent);backdrop-filter:blur(3px);
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);
+}
+.lb[hidden]{display:none!important}
+.stage{position:relative;width:70vw;height:70vh;display:flex;align-items:center;justify-content:center}
+.layer{
+  position:absolute;max-width:100%;max-height:100%;width:auto;height:auto;display:block;
+  opacity:0;will-change:opacity,transform,filter;
+}
+.layer.is-front{opacity:1}
+.layer.swish{transition:opacity .17s ease-in,transform .17s ease-in,filter .17s ease-in}
+.layer.dx{transition:opacity .3s linear}
+.lb .nav{
+  position:absolute;top:50%;translate:0 -50%;width:56px;height:56px;
+  border:0;background:none;cursor:pointer;color:var(--ink);opacity:.55;
+  display:flex;align-items:center;justify-content:center;transition:opacity .15s ease;
+}
+.lb .nav:hover,.lb .nav:focus-visible{opacity:1}
+.lb .prev{left:max(14px,2.2vw)}
+.lb .next{right:max(14px,2.2vw)}
+.lb .close{
+  position:absolute;top:max(18px,2.2vw);right:max(14px,2.2vw);width:44px;height:44px;
+  border:0;background:none;cursor:pointer;color:var(--ink);opacity:.55;
+  display:flex;align-items:center;justify-content:center;
+}
+.lb .close:hover,.lb .close:focus-visible{opacity:1}
+.lb .nav:focus-visible,.lb .close:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+.meta{
+  position:absolute;left:max(14px,2.2vw);right:max(14px,2.2vw);
+  bottom:calc(max(18px,2.2vw) + env(safe-area-inset-bottom,0px));
+  display:flex;justify-content:space-between;color:var(--muted);
+  font:11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;pointer-events:none;
+}
+.meta .count{font-variant-numeric:tabular-nums}
+
+@media(max-width:860px){
+  body{padding:0 5vw}
+  .grid{grid-template-columns:repeat(2,1fr);gap:16px 8px}
+  .bar{padding:22px 0}
+  .bar--top{--topbar-h:62px;padding:0}
+  main{padding:30px 0 40px}
+  .stage{width:86vw;height:62vh}
+  .lb .nav{width:44px;height:44px}
+  .lb .prev{left:4px}
+  .lb .next{right:4px}
+  .cap{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .layer,.cap{transition:none!important}
+  .wordmark img.is-spinning{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar bar--top">
+  <a class="wordmark" href="index.html" data-cursor="home"><img src="marks/logo.png" alt="Keyun Xiao"></a>
+  <nav><span class="here">Photography</span><a href="ux-ui.html">Website &amp; UI/UX</a><a href="index.html">Index</a></nav>
+</header>
+
+<main>
+  <ul class="grid" id="grid"></ul>
+</main>
+
+<footer class="bar bar--foot">
+  <span class="folio">PERSONAL UNIVERSE · VOL. 001</span>
+  <a class="back" href="index.html">← Index</a>
+</footer>
+
+<div class="lb" id="lb" hidden>
+  <button class="close" id="close" aria-label="Close">
+    <svg width="17" height="17" viewBox="0 0 17 17" aria-hidden="true"><path d="M1 1 16 16M16 1 1 16" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+  </button>
+  <button class="nav prev" id="prev" aria-label="Previous photograph">
+    <svg width="22" height="34" viewBox="0 0 22 34" aria-hidden="true"><path d="M17 1 4 17l13 16" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+  </button>
+  <div class="stage" id="stage">
+    <img class="layer" id="layerA" alt="">
+    <img class="layer" id="layerB" alt="">
+  </div>
+  <button class="nav next" id="next" aria-label="Next photograph">
+    <svg width="22" height="34" viewBox="0 0 22 34" aria-hidden="true"><path d="M5 1l13 16L5 33" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+  </button>
+  <div class="meta"><span class="loc" id="loc"></span><span class="count" id="count"></span></div>
+</div>
+
+<script>
+const PHOTOS = [
+  ['joshua-tree-sunset',   'Joshua Tree, USA', 'Joshua trees against a sunset ridgeline, power lines overhead'],
+  ['milky-way',            'Joshua Tree, USA', 'The Milky Way arching over the desert'],
+  ['star-trails',          'Joshua Tree, USA', 'Circular star trails above the desert floor'],
+  ['meteors',              'Joshua Tree, USA', 'Meteors crossing a dense field of stars'],
+  ['desert-night-sky',     'Joshua Tree, USA', 'A clear night sky over the desert'],
+  ['eclipse-moonset',      'Joshua Tree, USA', 'A partially eclipsed moon setting behind a ridge'],
+  ['paper-lanterns',       'Japan',       'Paper lanterns strung along a wooden corridor'],
+  ['nara-station',         'Japan',       'A train crossing the viaduct at JR Nara Station'],
+  ['fushimi-inari',        'Japan',       'A visitor walking the torii gates at Fushimi Inari'],
+  ['miyajima-shopfront',   'Japan',       'A momiji manju shopfront at dusk'],
+  ['kyoto-rooftops',       'Japan',       'Kyoto Tower seen through a tangle of power lines'],
+  ['hikers-on-the-ridge',  'Japan',       'Hikers walking a grass ridge below summer clouds'],
+  ['red-house-komuroyama', 'Japan',       'A small red house on a green hillside above the sea'],
+  ['nebukawa-station',     'Japan',       'The platform at Nebukawa Station'],
+  ['nezu-museum-veranda',  'Japan',       'A glazed veranda under a deep eave, looking out to the garden'],
+  ['sake-barrels',         'Japan',       'A wall of consecrated sake barrels at the shrine'],
+  ['meiji-jingu-torii',    'Japan',       'The great wooden torii on the approach to Meiji Jingu'],
+  ['temple-eaves',         'Japan',       'Tiled temple eaves seen past an old trunk'],
+  ['rocky-shoreline',      'Japan',       'A rocky shoreline under a pale sky'],
+  ['donburi-by-the-sea',   'Japan',       'A bowl of donburi on a tray beside a window over the sea'],
+  ['miharashi-tei',        'Japan',       'Looking down a stairway onto a seaside restaurant'],
+  ['red-bridge',           'Japan',       'A red arched bridge over a wooded ravine'],
+];
+const full = i => `photos/${PHOTOS[i][0]}.webp`;
+const thumb = i => `photos/${PHOTOS[i][0]}-sm.webp`;
+
+/* ---- grid ---- */
+const grid = document.getElementById('grid');
+grid.innerHTML = PHOTOS.map(([slug, loc, alt], i) => `
+  <li><button class="tile" data-i="${i}">
+    <span class="frame"><img src="${thumb(i)}" alt="${alt}" loading="lazy" decoding="async"></span>
+    <span class="cap">${loc}</span>
+  </button></li>`).join('');
+
+/* ---- lightbox ---- */
+const lb = document.getElementById('lb');
+const layers = [document.getElementById('layerA'), document.getElementById('layerB')];
+const locEl = document.getElementById('loc');
+const countEl = document.getElementById('count');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+let front = 0, idx = 0, busy = false, lastFocus = null;
+
+const pad = n => String(n + 1).padStart(2, '0');
+function label(i){
+  locEl.textContent = PHOTOS[i][1];
+  countEl.textContent = `${pad(i)} / ${PHOTOS.length}`;
+}
+function preload(i){
+  const n = (i + 1) % PHOTOS.length, p = (i - 1 + PHOTOS.length) % PHOTOS.length;
+  [n, p].forEach(k => { const im = new Image(); im.src = full(k); });
+}
+function reset(el){
+  el.classList.remove('swish', 'dx');
+  el.style.transform = '';
+  el.style.filter = '';
+  el.style.mixBlendMode = '';
+  el.style.opacity = '';
+}
+
+function open(i){
+  lastFocus = document.activeElement;
+  idx = i; front = 0;
+  const a = layers[0], b = layers[1];
+  reset(a); reset(b);
+  b.classList.remove('is-front');
+  a.src = full(i); a.alt = PHOTOS[i][2];
+  a.classList.add('is-front');
+  label(i);
+  lb.hidden = false;
+  document.body.style.overflow = 'hidden';
+  document.getElementById('next').focus();
+  preload(i);
+}
+function close(){
+  lb.hidden = true;
+  document.body.style.overflow = '';
+  layers.forEach(l => { reset(l); l.classList.remove('is-front'); });
+  if (lastFocus) lastFocus.focus();
+}
+
+function go(dir){
+  if (busy) return;
+  const n = (idx + dir + PHOTOS.length) % PHOTOS.length;
+  // the sequence loops back on itself — that replay gets the double exposure
+  const wrapped = (dir === 1 && n === 0) || (dir === -1 && idx === 0);
+  const cur = layers[front], nxt = layers[1 - front];
+
+  reset(nxt);
+  nxt.src = full(n);
+  nxt.alt = PHOTOS[n][2];
+
+  const settle = () => {
+    cur.classList.remove('is-front');
+    reset(cur);
+    nxt.classList.add('is-front');
+    front = 1 - front;
+    idx = n;
+    busy = false;
+    preload(n);
+  };
+
+  if (reduced.matches){ label(n); settle(); return; }
+  busy = true;
+
+  if (wrapped){
+    // scene three: both frames held together, then the old one lets go
+    cur.classList.add('dx'); nxt.classList.add('dx');
+    nxt.style.mixBlendMode = 'multiply';
+    requestAnimationFrame(() => { cur.style.opacity = '.55'; nxt.style.opacity = '.55'; });
+    setTimeout(() => {
+      nxt.style.opacity = '1';
+      cur.style.opacity = '0';
+      setTimeout(() => { nxt.style.mixBlendMode = ''; label(n); settle(); }, 300);
+    }, 320);
+  } else {
+    // scene one: the outgoing frame swishes off — scene two: the new one simply is there
+    cur.classList.add('swish');
+    requestAnimationFrame(() => {
+      cur.style.transform = `translateX(${dir * -7}%)`;
+      cur.style.filter = 'blur(3px)';
+      cur.style.opacity = '0';
+    });
+    setTimeout(() => { label(n); settle(); }, 180);
+  }
+}
+
+grid.addEventListener('click', e => {
+  const t = e.target.closest('.tile');
+  if (t) open(Number(t.dataset.i));
+});
+document.getElementById('prev').addEventListener('click', () => go(-1));
+document.getElementById('next').addEventListener('click', () => go(1));
+document.getElementById('close').addEventListener('click', close);
+lb.addEventListener('click', e => { if (e.target === lb || e.target === document.getElementById('stage')) close(); });
+document.addEventListener('keydown', e => {
+  if (lb.hidden) return;
+  if (e.key === 'Escape') close();
+  else if (e.key === 'ArrowRight') go(1);
+  else if (e.key === 'ArrowLeft') go(-1);
+});
+
+/* one full clockwise turn when the logo is hovered, always allowed to finish */
+(function () {
+  var mark = document.querySelector('.wordmark img');
+  if (!mark) return;
+  mark.parentElement.addEventListener('pointerenter', function () {
+    if (!mark.classList.contains('is-spinning')) mark.classList.add('is-spinning');
+  });
+  mark.addEventListener('animationend', function () { mark.classList.remove('is-spinning'); });
+})();
+</script>
+<script src="cursor.js"></script>
+</body>
+</html>
