@@ -95,11 +95,6 @@ main{padding:44px 0 56px}
       </video>
     </div>
 
-    <div class="media media--board" id="board" data-cursor="expand">
-      <img src="work/vors-store.webp" srcset="work/vors-store.webp 2048w, work/vors-store@2x.webp 4096w" sizes="100vw" alt="VORS rug store screens: home page with an oversized wordmark, a sale shelf, a gift card block, mobile views, the catalog grid, and the Blinchik the Cat product page." loading="lazy" decoding="async">
-    </div>
-    <button class="expand" id="expand" aria-expanded="false" aria-controls="board">Expand full board ↓</button>
-
     <div class="media">
       <video poster="work/vors-giftcard-poster.webp"
              autoplay muted loop playsinline controls preload="metadata"
@@ -109,15 +104,12 @@ main{padding:44px 0 56px}
       </video>
     </div>
 
-    <div class="media media--board" id="board2" data-cursor="expand">
+    <div class="media media--board" id="board" data-cursor="expand">
+      <img src="work/vors-store.webp" srcset="work/vors-store.webp 2048w, work/vors-store@2x.webp 4096w" sizes="100vw" alt="VORS rug store screens: home page with an oversized wordmark, a sale shelf, a gift card block, mobile views, the catalog grid, and the Blinchik the Cat product page." loading="lazy" decoding="async">
       <img src="work/vors-checkout.webp" srcset="work/vors-checkout.webp 2048w, work/vors-checkout@2x.webp 4096w" sizes="100vw" alt="VORS checkout page with order summary, the catalog with the bag drawer open, and the store shown across tablet and phone mockups." loading="lazy" decoding="async">
-    </div>
-    <button class="expand" id="expand2" aria-expanded="false" aria-controls="board2">Expand full board ↓</button>
-
-    <div class="media media--board" id="board3" data-cursor="expand">
       <img src="work/vors-collections.webp" srcset="work/vors-collections.webp 2048w, work/vors-collections@2x.webp 4096w" sizes="100vw" alt="VORS collections page with an oversized headline and a carousel of the designers and artists behind each collection." loading="lazy" decoding="async">
     </div>
-    <button class="expand" id="expand3" aria-expanded="false" aria-controls="board3">Expand full board ↓</button>
+    <button class="expand" id="expand" aria-expanded="false" aria-controls="board">Expand full board ↓</button>
 
   </section>
 
@@ -152,7 +144,7 @@ main{padding:44px 0 56px}
 /* each tall board starts clipped to one screen; a click (or its button) lets it
    run at full height instead of scrolling inside itself */
 (function () {
-  [['board','expand'],['board2','expand2'],['board3','expand3']].forEach(function (pair) {
+  [['board','expand']].forEach(function (pair) {
     var board = document.getElementById(pair[0]);
     var btn = document.getElementById(pair[1]);
     if (!board || !btn) return;
