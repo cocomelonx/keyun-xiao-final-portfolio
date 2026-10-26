@@ -44,6 +44,17 @@ a{color:inherit;text-decoration:none}
 /* ---- page head ---- */
 main{padding:44px 0 56px}
 
+/* ---- project header: the wordmark set against the description ---- */
+.intro{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:28px 6vw;align-items:center;padding:0 0 46px;
+}
+.intro-mark{width:100%;max-width:520px;height:auto;display:block}
+.intro-copy{
+  margin:0;font:400 clamp(16px,1.5vw,21px)/1.5 var(--sans);max-width:46ch;
+  text-wrap:pretty;
+}
+
 /* ---- the work: video and board stacked flush as one section ---- */
 .work{display:flex;flex-direction:column;gap:10px;padding:0 0 10px}
 .media{display:block;width:100%;background:#fff;overflow:hidden}
@@ -68,6 +79,7 @@ main{padding:44px 0 56px}
   .bar{padding:22px 0}
   .bar--top{--topbar-h:62px;padding:0}
   main{padding:30px 0 40px}
+  .intro{grid-template-columns:1fr;gap:18px;padding-bottom:30px}
   .media--board{max-height:70svh}
 }
 @media(prefers-reduced-motion:reduce){
@@ -83,6 +95,11 @@ main{padding:44px 0 56px}
 </header>
 
 <main>
+
+  <header class="intro">
+    <img class="intro-mark" src="work/vors-wordmark.webp" alt="VORS" decoding="async">
+    <p class="intro-copy">VORS — a store offering handmade rugs by global designers. Unique design, premium materials, and flawless quality. Let art surround you.</p>
+  </header>
 
   <section class="work">
 
