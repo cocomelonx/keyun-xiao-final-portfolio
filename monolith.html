@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Monolith Coffee — Keyun Xiao</title>
+<meta name="description" content="Brand identity and social design for Monolith Coffee, a specialty coffee shop and roastery in Alhambra, California.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* Monolith: one standing mass, divided into four movements. The brand's own
+   post system is built on soft duotone gradient fields, so those fields carry
+   the page; everything around them is flat, quiet stone. */
+:root{
+  --basalt:#241F1B;
+  --slate:#6E6962;
+  --chalk:#E9E4DA;
+  --paper:#e8ece8;
+  --ink:#17201e;
+  --rule:#cfd6d0;
+  --apricot:#E9A05F;
+  --clay:#BE6136;
+  --haze:#C9C2D6;
+  --sans:'Archivo',Arial,Helvetica,sans-serif;
+  --serif:'Newsreader',Georgia,serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+figure{margin:0}
+html{background:var(--paper)}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+
+/* ---- site chrome, same as the other project pages ---- */
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:30px 2.2vw}
+.bar--top{--topbar-h:84px;height:var(--topbar-h);padding:0 2.2vw;align-items:center;border-bottom:1px solid var(--rule)}
+.bar--foot{padding-bottom:30px;border-top:1px solid var(--rule);color:var(--slate)}
+.wordmark{display:inline-flex;align-items:center}
+.wordmark img{height:calc(var(--topbar-h) * .55);width:auto;transition:opacity .15s ease;transform-origin:50% 50%}
+.wordmark img.is-spinning{animation:logo-spin 1.15s cubic-bezier(.45,.05,.2,1)}
+@keyframes logo-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.wordmark:hover img,.wordmark:focus-visible img{opacity:.55}
+.bar nav{display:flex;gap:22px;font:500 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.bar nav .here{color:var(--slate)}
+.folio{font:10px/1.4 'Courier New',monospace;letter-spacing:.08em}
+.back{font:500 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---- shared section furniture ---- */
+.band{padding:clamp(56px,8vw,128px) 2.2vw}
+.band--chalk{background:var(--chalk)}
+.band--basalt{background:var(--basalt);color:var(--chalk)}
+.wrap{max-width:1280px;margin:0 auto}
+.lede{max-width:34ch;font:500 clamp(22px,2.6vw,38px)/1.25 var(--sans);letter-spacing:-.02em;margin:0}
+.body{max-width:58ch;font:400 clamp(15px,1.15vw,17px)/1.65 var(--sans);color:var(--slate);margin:18px 0 0}
+.band--basalt .body{color:#A9A299}
+/* the Chinese character is the section marker: it is how the brand indexes its
+   own chapters, so it carries the role an eyebrow label would otherwise take */
+.chapter{display:flex;align-items:baseline;gap:16px;margin:0 0 34px;padding-bottom:18px;border-bottom:1px solid currentColor}
+.chapter .zh{font:400 clamp(26px,3vw,40px)/1 var(--sans);letter-spacing:.1em}
+.chapter h2{margin:0;font:700 clamp(15px,1.3vw,19px)/1 var(--sans);letter-spacing:.02em}
+.chapter .n{margin-left:auto;font:500 12px/1 var(--sans);letter-spacing:.2em;opacity:.5}
+
+/* ---- hero ---- */
+.hero{
+  min-height:min(88svh,820px);display:grid;place-items:center;padding:8vh 2.2vw;
+  background:
+    radial-gradient(120% 90% at 18% 8%, #F6D9B6 0%, rgba(246,217,182,0) 55%),
+    radial-gradient(100% 80% at 88% 92%, #C7B9CF 0%, rgba(199,185,207,0) 60%),
+    linear-gradient(168deg, #E9A05F 0%, #E7D7C4 46%, #BFB6C6 100%);
+}
+.hero-inner{text-align:center;display:grid;justify-items:center;gap:30px}
+.hero-glyph{width:clamp(76px,9vw,126px);height:auto}
+.hero h1{
+  margin:0;font:900 clamp(46px,12.5vw,196px)/.84 var(--sans);
+  letter-spacing:-.045em;color:var(--basalt);
+}
+.hero .sub{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;
+  font:500 clamp(11px,1.05vw,14px)/1 var(--sans);letter-spacing:.3em;color:#4A3F36;
+}
+.hero .zh{font-size:1.15em;letter-spacing:.34em}
+
+/* ---- full-bleed gradient field ---- */
+.field{min-height:clamp(300px,40vw,560px);display:grid;place-items:center;padding:7vw 2.2vw;text-align:center}
+.field h3{margin:0;font:800 clamp(30px,6.6vw,104px)/.92 var(--sans);letter-spacing:-.035em}
+.field p{margin:20px auto 0;font:400 clamp(13px,1.1vw,16px)/1.5 var(--sans);opacity:.72;max-width:44ch}
+.field em{font:italic 300 1em/1 var(--serif);letter-spacing:0}
+
+/* ---- two-up ---- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.duo > *{min-height:clamp(260px,34vw,560px);display:grid;place-items:center;padding:7vw 5vw}
+.pad{padding:clamp(40px,5vw,86px) 2.2vw}
+
+/* ---- logo variation grid ---- */
+.marks{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--basalt)}
+.mark-cell{
+  aspect-ratio:4/3;display:grid;place-items:center;padding:7% 9%;position:relative;
+}
+.mark-cell figcaption{
+  position:absolute;left:16px;bottom:13px;
+  font:500 10px/1 var(--sans);letter-spacing:.16em;opacity:.55;
+}
+.mc-chalk{background:var(--chalk);color:var(--basalt)}
+.mc-basalt{background:var(--basalt);color:var(--chalk)}
+.mc-apricot{background:var(--apricot);color:var(--basalt)}
+.mc-clay{background:var(--clay);color:var(--chalk)}
+.mc-haze{background:var(--haze);color:var(--basalt)}
+.mc-grad{background:linear-gradient(145deg,#F2C79B,#D9B9C4);color:var(--basalt)}
+.mark-cell svg{width:100%;height:auto;max-height:100%}
+
+/* ---- palette ---- */
+.swatches{display:grid;grid-template-columns:repeat(6,1fr)}
+.sw{aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 16px;gap:3px}
+.sw b{font:600 13px/1.2 var(--sans);letter-spacing:.01em}
+.sw span{font:500 11px/1.2 'Courier New',monospace;letter-spacing:.06em;opacity:.65}
+
+/* ---- typography specimen ---- */
+.spec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:end}
+.glyphrow{font:900 clamp(60px,15vw,230px)/.8 var(--sans);letter-spacing:-.05em;color:var(--basalt)}
+.scale li{list-style:none;border-top:1px solid var(--rule);padding:14px 0;display:flex;align-items:baseline;gap:18px}
+.scale{margin:0;padding:0}
+.scale .lbl{font:500 11px/1 var(--sans);letter-spacing:.14em;color:var(--slate);min-width:9ch}
+.scale .samp{font-weight:700;letter-spacing:-.02em;color:var(--basalt)}
+
+/* ---- four movements ---- */
+.movements{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.mv{
+  aspect-ratio:4/5;padding:clamp(18px,2vw,30px);display:flex;flex-direction:column;
+  color:var(--basalt);position:relative;overflow:hidden;
+}
+.mv .num{font:500 11px/1 var(--sans);letter-spacing:.24em}
+.mv .zh{margin-top:auto;font:400 clamp(22px,3vw,44px)/1 var(--sans);letter-spacing:.14em}
+.mv .en{margin:8px 0 0;font:800 clamp(16px,2.1vw,32px)/1 var(--sans);letter-spacing:-.02em}
+.mv .notes{margin:12px 0 0;font:400 clamp(10px,.82vw,12px)/1.45 var(--sans);opacity:.68}
+.mv1{background:linear-gradient(170deg,#EADFCE,#CFC3B2)}
+.mv2{background:linear-gradient(170deg,#F0A85F,#E8DCC6)}
+.mv3{background:linear-gradient(170deg,#C9C2D6,#EDE6E6)}
+.mv4{background:linear-gradient(170deg,#9FA69A,#E4E2D6)}
+
+/* ---- instagram ---- */
+.ig{max-width:1120px;margin:0 auto}
+.ig-head{display:flex;align-items:center;gap:clamp(18px,4vw,56px);padding:0 0 clamp(26px,3vw,44px)}
+.ig-av{
+  width:clamp(64px,8vw,116px);aspect-ratio:1;border-radius:50%;background:var(--clay);
+  display:grid;place-items:center;flex:none;
+}
+.ig-av svg{width:44%;height:auto}
+.ig-meta h4{margin:0;font:700 clamp(15px,1.4vw,20px)/1.3 var(--sans)}
+.ig-meta p{margin:4px 0 0;font:400 clamp(12px,1vw,14px)/1.5 var(--sans);color:var(--slate)}
+.ig-stats{display:flex;gap:22px;margin:10px 0 0;font:500 12px/1 var(--sans);color:var(--slate)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.post{aspect-ratio:4/5;padding:7%;display:flex;flex-direction:column;position:relative;overflow:hidden;color:var(--basalt)}
+.post h5{margin:0;font:800 clamp(14px,1.9vw,27px)/.98 var(--sans);letter-spacing:-.025em}
+.post h5 em{font:italic 300 .92em/1 var(--serif);letter-spacing:0}
+.post .ing{margin:7px 0 0;font:400 clamp(7.5px,.65vw,9.5px)/1.5 var(--sans);opacity:.66;max-width:26ch}
+.post .cup{margin:auto auto 0;width:58%;height:auto}
+.post .stamp{position:absolute;right:7%;bottom:7%;width:11%;opacity:.5}
+.p1{background:linear-gradient(160deg,#F3CFA4,#E4B9A6)}
+.p2{background:linear-gradient(160deg,#EFE6D8,#D6CBBA)}
+.p3{background:linear-gradient(160deg,#D8CFE0,#EFE7E2)}
+.p4{background:linear-gradient(160deg,#F0A85F,#F3DFC2)}
+.p5{background:linear-gradient(160deg,#CBD3C6,#EDEBDF)}
+.p6{background:linear-gradient(160deg,#E7CFC4,#C9B6BF)}
+.p7{background:var(--basalt);color:var(--chalk)}
+.p8{background:linear-gradient(160deg,#EFD9B5,#E0A87A)}
+.p9{background:linear-gradient(160deg,#BFB6C6,#E9E4DA)}
+
+/* ---- cups ---- */
+.cups{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.cupcell{aspect-ratio:1;display:grid;place-items:center;padding:12%}
+.cupcell svg{width:72%;height:auto}
+
+/* ---- card / menu ---- */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,40px);align-items:center}
+.card{
+  background:var(--chalk);color:var(--basalt);aspect-ratio:7/4;border-radius:3px;
+  padding:clamp(18px,2.4vw,38px);display:flex;flex-direction:column;
+  box-shadow:0 18px 44px rgba(20,16,12,.26);
+}
+.card.dark{background:var(--basalt);color:var(--chalk)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card .nm{font:800 clamp(14px,1.5vw,22px)/1 var(--sans);letter-spacing:-.01em}
+.card .ft{margin-top:auto;font:400 clamp(9px,.78vw,11.5px)/1.55 var(--sans);opacity:.7}
+.card svg{width:clamp(20px,2.2vw,32px);height:auto;flex:none}
+
+/* ---- closing ---- */
+.end{background:var(--basalt);color:var(--chalk);text-align:center;padding:clamp(70px,11vw,170px) 2.2vw}
+.end svg{width:clamp(54px,6vw,88px);margin:0 auto 28px;height:auto}
+.end h3{margin:0;font:900 clamp(34px,8.5vw,132px)/.88 var(--sans);letter-spacing:-.045em}
+.end p{margin:22px auto 0;max-width:40ch;font:400 clamp(13px,1.05vw,15px)/1.6 var(--sans);color:#A9A299}
+.credit{margin:40px auto 0;font:500 11px/1.7 var(--sans);letter-spacing:.1em;color:#7E776E}
+
+@media(max-width:900px){
+  .bar--top{--topbar-h:62px}
+  .duo,.spec,.cards{grid-template-columns:1fr}
+  .marks,.cups{grid-template-columns:1fr 1fr}
+  .movements{grid-template-columns:1fr 1fr}
+  .swatches{grid-template-columns:repeat(3,1fr)}
+  .ig-head{flex-direction:column;align-items:flex-start;gap:16px}
+}
+@media(max-width:560px){
+  .marks{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .post .ing{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .wordmark img.is-spinning{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="bar bar--top">
+  <a class="wordmark" href="index.html" data-cursor="home"><img src="marks/logo.png" alt="Keyun Xiao"></a>
+  <nav><span class="here">Monolith</span><a href="ux-ui.html">Mock projects</a><a href="photography.html">Photography</a><a href="index.html">Index</a></nav>
+</header>
+
+<!-- the mark, defined once and used at every size on the page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- one standing mass and its fragment, cut by two strata -->
+    <symbol id="glyph" viewBox="0 0 120 150">
+      <path d="M14 150V63a29 29 0 0 1 58 0v87z"/>
+      <path d="M82 150V97a14.5 14.5 0 0 1 29 0v53z"/>
+      <rect x="14" y="106" width="97" height="7.5" fill="#fff" style="fill:var(--cut,#fff)"/>
+    </symbol>
+    <!-- the same mass split into the four movements -->
+    <symbol id="glyph4" viewBox="0 0 120 150">
+      <path d="M14 150V63a29 29 0 0 1 58 0v87z"/>
+      <path d="M82 150V97a14.5 14.5 0 0 1 29 0v53z"/>
+      <rect x="27" y="40" width="5" height="110" fill="#fff" style="fill:var(--cut,#fff)"/>
+      <rect x="41" y="34" width="5" height="116" fill="#fff" style="fill:var(--cut,#fff)"/>
+      <rect x="55" y="40" width="5" height="110" fill="#fff" style="fill:var(--cut,#fff)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <svg class="hero-glyph" viewBox="0 0 120 150" aria-hidden="true" style="--cut:#E7C9A4">
+        <use href="#glyph" fill="#241F1B"/>
+      </svg>
+      <h1>MONOLITH</h1>
+      <div class="sub">
+        <span>COFFEE &amp; ROASTERY</span>
+        <span class="zh">四重章</span>
+        <span>ALHAMBRA, CA</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--chalk">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">序</span><h2>About the project</h2><span class="n">01 / 08</span></div>
+      <p class="lede">A coffee bar that serves its menu the way a quartet plays — one body of work, released in four movements.</p>
+      <p class="body">Monolith is a specialty shop and roastery on East Valley Boulevard in Alhambra, pouring drinks with names like Five Moons and Tiger in Tweed to a room the LA press has called speakeasy-quiet. The identity takes the name literally: a single standing mass, scored by the seasons that divide it. Every surface — cup, card, feed — is a face of the same stone.</p>
+      <p class="body">The system is bilingual by default. English carries the drink, Chinese carries the chapter, and neither is a translation of the other.</p>
+    </div>
+  </section>
+
+  <section class="field" style="background:linear-gradient(150deg,#241F1B 0%,#4A3B30 52%,#BE6136 100%);color:var(--chalk)">
+    <div>
+      <h3>One stone,<br><em>four</em> movements</h3>
+      <p>The mark splits as the year does — 序 still, 雨讯 monsoon, 日曜 solstice, 霜降 frost.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">印</span><h2>The mark</h2><span class="n">02 / 08</span></div>
+      <p class="body" style="max-width:62ch;margin-bottom:46px">Two masses, one tall and one fallen, cut by strata that read as sediment up close and as a bar line from across the room. The fragment is deliberate: a monolith that has given something up is more interesting than one that has not.</p>
+    </div>
+    <div class="marks">
+      <figure class="mark-cell mc-chalk" style="--cut:#E9E4DA">
+        <svg viewBox="0 0 120 150" style="max-height:72%"><use href="#glyph" fill="#241F1B"/></svg>
+        <figcaption>PRIMARY GLYPH</figcaption>
+      </figure>
+      <figure class="mark-cell mc-basalt" style="--cut:#241F1B">
+        <svg viewBox="0 0 120 150" style="max-height:72%"><use href="#glyph" fill="#E9E4DA"/></svg>
+        <figcaption>REVERSED</figcaption>
+      </figure>
+      <figure class="mark-cell mc-apricot" style="--cut:#E9A05F">
+        <svg viewBox="0 0 120 150" style="max-height:72%"><use href="#glyph4" fill="#241F1B"/></svg>
+        <figcaption>SEASONAL CUT</figcaption>
+      </figure>
+      <figure class="mark-cell mc-clay">
+        <svg viewBox="0 0 470 110" style="max-height:52%">
+          <text x="0" y="82" font-family="Archivo,Arial" font-size="80" font-weight="900" letter-spacing="-3" fill="#E9E4DA">MONOLITH</text>
+        </svg>
+        <figcaption>WORDMARK</figcaption>
+      </figure>
+      <figure class="mark-cell mc-chalk" style="--cut:#E9E4DA">
+        <svg viewBox="0 0 520 150" style="max-height:56%">
+          <use href="#glyph" fill="#241F1B" x="0" y="8" width="112" height="140"/>
+          <text x="140" y="112" font-family="Archivo,Arial" font-size="74" font-weight="900" letter-spacing="-2.6" fill="#241F1B">MONOLITH</text>
+        </svg>
+        <figcaption>HORIZONTAL LOCKUP</figcaption>
+      </figure>
+      <figure class="mark-cell mc-grad" style="--cut:#EBC8A8">
+        <svg viewBox="0 0 200 200" style="max-height:80%">
+          <circle cx="100" cy="100" r="98" fill="none" stroke="#241F1B" stroke-width="2.5"/>
+          <use href="#glyph" fill="#241F1B" x="58" y="46" width="84" height="105"/>
+          <text x="100" y="176" text-anchor="middle" font-family="Archivo,Arial" font-size="10.5" font-weight="600" letter-spacing="2" fill="#241F1B">ALHAMBRA CA</text>
+        </svg>
+        <figcaption>SEAL</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="duo">
+    <div class="mc-basalt" style="--cut:#241F1B;background:var(--basalt);color:var(--chalk);text-align:left;place-items:start;align-content:center">
+      <div>
+        <p style="margin:0;font:italic 300 clamp(22px,2.6vw,38px)/1.3 var(--serif);max-width:20ch">Stacked for the cup, where the wordmark has to survive a sleeve and a lid.</p>
+      </div>
+    </div>
+    <div style="background:var(--chalk)">
+      <svg viewBox="0 0 220 150" style="width:68%;height:auto" aria-label="Stacked lockup">
+        <text x="110" y="62" text-anchor="middle" font-family="Archivo,Arial" font-size="40" font-weight="900" letter-spacing="1.2" fill="#241F1B">MONOLITH</text>
+        <text x="110" y="96" text-anchor="middle" font-family="Archivo,Arial" font-size="23" font-weight="400" letter-spacing="9" fill="#241F1B">coffee</text>
+        <line x1="54" y1="113" x2="166" y2="113" stroke="#241F1B" stroke-width="1.6"/>
+        <text x="110" y="136" text-anchor="middle" font-family="Archivo,Arial" font-size="14" font-weight="500" letter-spacing="6" fill="#241F1B">四重章</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="band band--basalt">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">色</span><h2>Palette</h2><span class="n">03 / 08</span></div>
+      <p class="body" style="max-width:60ch;margin-bottom:44px">Basalt and chalk do the structural work. The warm half of the range is pulled off the counter — crema, clay, the oat-milk haze in a cup held to the window — and only ever appears as a gradient field, never as a flat fill.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#241F1B;color:#E9E4DA"><b>Basalt</b><span>#241F1B</span></div>
+      <div class="sw" style="background:#6E6962;color:#E9E4DA"><b>Slate</b><span>#6E6962</span></div>
+      <div class="sw" style="background:#E9E4DA;color:#241F1B"><b>Chalk</b><span>#E9E4DA</span></div>
+      <div class="sw" style="background:#E9A05F;color:#241F1B"><b>Crema</b><span>#E9A05F</span></div>
+      <div class="sw" style="background:#BE6136;color:#E9E4DA"><b>Clay</b><span>#BE6136</span></div>
+      <div class="sw" style="background:#C9C2D6;color:#241F1B"><b>Haze</b><span>#C9C2D6</span></div>
+    </div>
+  </section>
+
+  <section class="band band--chalk">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">字</span><h2>Typography</h2><span class="n">04 / 08</span></div>
+      <div class="spec">
+        <div class="glyphrow">Aa&nbsp;字</div>
+        <ul class="scale">
+          <li><span class="lbl">Display</span><span class="samp" style="font-size:clamp(20px,2.2vw,32px)">Archivo Black</span></li>
+          <li><span class="lbl">Drink</span><span class="samp" style="font-size:clamp(17px,1.8vw,26px)">Tiger <em style="font:italic 300 1em/1 var(--serif)">in</em> Tweed</span></li>
+          <li><span class="lbl">Running</span><span class="samp" style="font-size:16px;font-weight:400">Archivo Regular, 16/26</span></li>
+          <li><span class="lbl">Ingredient</span><span class="samp" style="font-size:11px;font-weight:400;opacity:.7">Espresso · Earl Grey · Mandarin</span></li>
+        </ul>
+      </div>
+      <p class="body" style="margin-top:38px">One grotesque carries the whole system. A single italic serif is allowed in, and only for the connective words inside a drink name — the <em style="font:italic 300 1em/1 var(--serif)">in</em> of Tiger in Tweed — so the menu reads like a title rather than a label.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">章</span><h2>In four movements</h2><span class="n">05 / 08</span></div>
+      <p class="body" style="max-width:60ch;margin-bottom:44px">The seasonal menu arrives four times a year. Each movement takes a gradient, a Chinese name, and a number that holds its place in the sequence.</p>
+    </div>
+    <div class="movements">
+      <article class="mv mv1">
+        <span class="num">01</span>
+        <span class="zh">序</span>
+        <h4 class="en">STILL</h4>
+        <p class="notes">Asamiya houjicha · chocolate · burnt sugar. Served with miso caramel cream and a soda cracker.</p>
+      </article>
+      <article class="mv mv2">
+        <span class="num">02</span>
+        <span class="zh">雨讯</span>
+        <h4 class="en">MONSOON</h4>
+        <p class="notes">Ethiopia natural cold brew · green plum · perilla · coconut water · lime · sea salt.</p>
+      </article>
+      <article class="mv mv3">
+        <span class="num">03</span>
+        <span class="zh">日曜</span>
+        <h4 class="en">SOLSTICE</h4>
+        <p class="notes">Espresso · honey yuja · calamansi · house-made dalgona candy over tonic.</p>
+      </article>
+      <article class="mv mv4">
+        <span class="num">04</span>
+        <span class="zh">霜降</span>
+        <h4 class="en">FROST</h4>
+        <p class="notes">Valrhona cocoa · nutella · sea salt caramel · coconut milk · cocoa puffs.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="field" style="background:linear-gradient(145deg,#C9C2D6,#F1E4D2 60%,#E9A05F);color:var(--basalt)">
+    <div>
+      <h3>Seasonal Highlights<br>VOL. 02</h3>
+      <p>The feed is the menu board. Nine posts hold a whole season.</p>
+    </div>
+  </section>
+
+  <section class="band band--chalk">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">網</span><h2>Social system</h2><span class="n">06 / 08</span></div>
+      <div class="ig">
+        <div class="ig-head">
+          <div class="ig-av" style="--cut:#BE6136">
+            <svg viewBox="0 0 120 150" style="width:100%"><use href="#glyph" fill="#241F1B"/></svg>
+          </div>
+          <div class="ig-meta">
+            <h4>monolithcoffeela</h4>
+            <p>MONOLITH COFFEE · Specialty Coffee Shop &amp; Roastery<br>43 E Valley Blvd, Alhambra, CA</p>
+            <div class="ig-stats"><span>312 posts</span><span>9,836 followers</span><span>四重章</span></div>
+          </div>
+        </div>
+        <div class="ig-grid">
+          <article class="post p1">
+            <h5>Five<br>Moons</h5>
+            <p class="ing">Ethiopia natural cold brew · pear · omija · 23-grain cream · toasted pine nuts</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <defs><clipPath id="c1"><path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z"/></clipPath></defs>
+              <g clip-path="url(#c1)">
+                <rect x="0" y="30" width="100" height="110" fill="#F4E6D0"/>
+                <rect x="0" y="70" width="100" height="80" fill="#5E3C27"/>
+              </g>
+              <path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z" fill="none" stroke="#241F1B" stroke-width="2" opacity=".5"/>
+              <rect x="13" y="25" width="74" height="11" rx="3.5" fill="#241F1B" opacity=".82"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p2">
+            <h5>Sunlit<br>Rain</h5>
+            <p class="ing">Ethiopia natural cold brew · green plum · perilla · coconut water · lime · sea salt</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <defs><clipPath id="c2"><path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z"/></clipPath></defs>
+              <g clip-path="url(#c2)">
+                <rect x="0" y="30" width="100" height="110" fill="#F1E7D3"/>
+                <rect x="0" y="62" width="100" height="80" fill="#C8873F"/>
+              </g>
+              <path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z" fill="none" stroke="#241F1B" stroke-width="2" opacity=".5"/>
+              <rect x="13" y="25" width="74" height="11" rx="3.5" fill="#241F1B" opacity=".82"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p3">
+            <h5>Tiger <em>in</em><br>Tweed</h5>
+            <p class="ing">Espresso · earl grey · mandarin · white chocolate · milk · orange zest</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <defs><clipPath id="c3"><path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z"/></clipPath></defs>
+              <g clip-path="url(#c3)">
+                <rect x="0" y="30" width="100" height="110" fill="#F5E7CB"/>
+                <rect x="0" y="64" width="100" height="80" fill="#D08E4E"/>
+              </g>
+              <path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z" fill="none" stroke="#241F1B" stroke-width="2" opacity=".5"/>
+              <rect x="13" y="25" width="74" height="11" rx="3.5" fill="#241F1B" opacity=".82"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p4">
+            <h5>IN FOUR<br>MOVEMENTS</h5>
+            <p class="ing">02 · 雨讯 MONSOON · seasonal menu now pouring</p>
+            <svg class="cup" viewBox="0 0 120 150" style="--cut:#F3DFC2;width:40%" aria-hidden="true"><use href="#glyph4" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p5">
+            <h5>Sea Salt<br>Vanilla</h5>
+            <p class="ing">Silky vanilla bean pudding · caramel · sea salt cream · raspberry</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <defs><clipPath id="c5"><path d="M22 34h56v74a12 12 0 0 1-12 12H34a12 12 0 0 1-12-12z"/></clipPath></defs>
+              <g clip-path="url(#c5)">
+                <rect x="0" y="30" width="100" height="110" fill="#F8F0E1"/>
+                <rect x="0" y="70" width="100" height="70" fill="#B9803F"/>
+              </g>
+              <path d="M22 34h56v74a12 12 0 0 1-12 12H34a12 12 0 0 1-12-12z" fill="none" stroke="#241F1B" stroke-width="2" opacity=".5"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p6">
+            <h5>Ball<br>Pit</h5>
+            <p class="ing">Espresso · valrhona cocoa · nutella · sea salt caramel · coconut milk · cocoa puffs</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <defs><clipPath id="c6"><path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z"/></clipPath></defs>
+              <g clip-path="url(#c6)">
+                <rect x="0" y="30" width="100" height="110" fill="#EFDDC4"/>
+                <rect x="0" y="60" width="100" height="80" fill="#4A3327"/><circle cx="36" cy="52" r="7" fill="#6B4B35"/><circle cx="54" cy="46" r="6" fill="#7A5940"/><circle cx="68" cy="54" r="5" fill="#6B4B35"/>
+              </g>
+              <path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z" fill="none" stroke="#241F1B" stroke-width="2" opacity=".5"/>
+              <rect x="13" y="25" width="74" height="11" rx="3.5" fill="#241F1B" opacity=".82"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p7">
+            <h5>Open<br>9—5</h5>
+            <p class="ing" style="opacity:.6">Mon–Thu 9AM–3PM · Fri–Sun 9AM–5PM<br>43 E Valley Blvd</p>
+            <svg class="cup" viewBox="0 0 120 150" style="--cut:#241F1B;width:36%" aria-hidden="true"><use href="#glyph" fill="#E9E4DA"/></svg>
+          </article>
+          <article class="post p8">
+            <h5>Dalgona<br>Tonic</h5>
+            <p class="ing">Espresso · honey yuja · calamansi · tonic · house-made dalgona candy</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <defs><clipPath id="c8"><path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z"/></clipPath></defs>
+              <g clip-path="url(#c8)">
+                <rect x="0" y="30" width="100" height="110" fill="#DEA461"/>
+                <rect x="0" y="58" width="100" height="80" fill="#EFE3C6"/>
+              </g>
+              <path d="M18 36h64l-7 80a10 10 0 0 1-10 9H35a10 10 0 0 1-10-9z" fill="none" stroke="#241F1B" stroke-width="2" opacity=".5"/>
+              <rect x="13" y="25" width="74" height="11" rx="3.5" fill="#241F1B" opacity=".82"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+          <article class="post p9">
+            <h5>Black Sesame<br>Basque</h5>
+            <p class="ing">Black sesame · cream cheese · sea salt cream</p>
+            <svg class="cup" viewBox="0 0 100 132" aria-hidden="true">
+              <path d="M16 112 50 44l34 68z" fill="#3B3430"/>
+              <path d="M16 112h68l-3 9H19z" fill="#6A5B4C"/>
+              <circle cx="50" cy="40" r="7" fill="#F4EADB"/>
+            </svg>
+            <svg class="stamp" viewBox="0 0 120 150" style="--cut:transparent" aria-hidden="true"><use href="#glyph" fill="#241F1B"/></svg>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--basalt">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">器</span><h2>Cup &amp; counter</h2><span class="n">07 / 08</span></div>
+      <p class="body" style="max-width:60ch;margin-bottom:44px">Three sizes, one lockup, printed a single colour. The glyph sits low on the cup so it clears the sleeve and still reads when the cup is held at the table.</p>
+    </div>
+    <div class="cups">
+      <div class="cupcell" style="background:#E9E4DA">
+        <svg viewBox="0 0 120 150" aria-label="8oz cup">
+          <path d="M22 26h76l-9 110a12 12 0 0 1-12 11H43a12 12 0 0 1-12-11z" fill="#F7F4EE" stroke="#241F1B" stroke-width="2"/>
+          <rect x="18" y="16" width="84" height="12" rx="4" fill="#241F1B"/>
+          <text x="60" y="78" text-anchor="middle" font-family="Archivo,Arial" font-size="11.5" font-weight="900" letter-spacing=".6" fill="#241F1B">MONOLITH</text>
+          <text x="60" y="92" text-anchor="middle" font-family="Archivo,Arial" font-size="7.5" letter-spacing="3" fill="#241F1B">coffee</text>
+        </svg>
+      </div>
+      <div class="cupcell" style="background:#E9A05F">
+        <svg viewBox="0 0 120 150" style="--cut:#241F1B" aria-label="12oz cup">
+          <path d="M22 20h76l-9 116a12 12 0 0 1-12 11H43a12 12 0 0 1-12-11z" fill="#241F1B"/>
+          <rect x="18" y="10" width="84" height="12" rx="4" fill="#E9E4DA"/>
+          <use href="#glyph" fill="#E9A05F" x="44" y="54" width="34" height="42"/>
+          <text x="60" y="122" text-anchor="middle" font-family="Archivo,Arial" font-size="9" letter-spacing="4" fill="#E9E4DA">四重章</text>
+        </svg>
+      </div>
+      <div class="cupcell" style="background:#BE6136">
+        <svg viewBox="0 0 120 150" aria-label="16oz cup">
+          <path d="M22 14h76l-9 122a12 12 0 0 1-12 11H43a12 12 0 0 1-12-11z" fill="#F7F4EE" stroke="#241F1B" stroke-width="2"/>
+          <rect x="18" y="4" width="84" height="12" rx="4" fill="#241F1B"/>
+          <text x="60" y="66" text-anchor="middle" font-family="Archivo,Arial" font-size="10.5" font-weight="900" letter-spacing=".4" fill="#241F1B">MONOLITH</text>
+          <line x1="38" y1="75" x2="82" y2="75" stroke="#241F1B" stroke-width="1.3"/>
+          <text x="60" y="90" text-anchor="middle" font-family="Archivo,Arial" font-size="6.5" letter-spacing="1.6" fill="#241F1B">ALHAMBRA</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="background:linear-gradient(160deg,#D9CFC0,#B9AEA2)">
+    <div class="wrap">
+      <div class="chapter"><span class="zh">片</span><h2>Card &amp; menu slip</h2><span class="n">08 / 08</span></div>
+      <div class="cards">
+        <div class="card">
+          <div class="top">
+            <span class="nm">MONOLITH</span>
+            <svg viewBox="0 0 120 150" style="--cut:#E9E4DA"><use href="#glyph" fill="#241F1B"/></svg>
+          </div>
+          <p class="ft">43 E Valley Blvd, Alhambra CA 91801<br>Mon–Thu 9–3 · Fri–Sun 9–5 · @monolithcoffeela</p>
+        </div>
+        <div class="card dark">
+          <div class="top">
+            <span class="nm">序 · STILL</span>
+            <span style="font:500 11px/1 var(--sans);letter-spacing:.2em;opacity:.6">01</span>
+          </div>
+          <p class="ft" style="margin-top:18px">Asamiya houjicha · chocolate · burnt sugar<br>Koji oat milk<br>Sous-vide banana · vanilla · mint syrup</p>
+          <p class="ft" style="margin-top:auto;opacity:.5">Served with miso caramel cream, nori crumble, soda cracker</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end">
+    <svg viewBox="0 0 120 150" style="--cut:#241F1B" aria-hidden="true"><use href="#glyph" fill="#E9E4DA"/></svg>
+    <h3>MONOLITH</h3>
+    <p>Brand identity, seasonal menu system and social design for a coffee bar that releases its year in four parts.</p>
+    <p class="credit">SELF-INITIATED CONCEPT · NOT AFFILIATED WITH MONOLITH COFFEE<br>DESIGN BY KEYUN XIAO · 2026</p>
+  </section>
+
+</main>
+
+<footer class="bar bar--foot">
+  <span class="folio">PERSONAL UNIVERSE · VOL. 001</span>
+  <a class="back" href="index.html">← Index</a>
+</footer>
+
+<script>
+/* one full clockwise turn when the logo is hovered, always allowed to finish */
+(function () {
+  var mark = document.querySelector('.wordmark img');
+  if (!mark) return;
+  mark.parentElement.addEventListener('pointerenter', function () {
+    if (!mark.classList.contains('is-spinning')) mark.classList.add('is-spinning');
+  });
+  mark.addEventListener('animationend', function () { mark.classList.remove('is-spinning'); });
+})();
+</script>
+<script src="cursor.js"></script>
+</body>
+</html>
