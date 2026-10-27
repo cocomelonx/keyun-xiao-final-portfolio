@@ -66,40 +66,21 @@ img,svg{display:block;max-width:100%}
 .chapter .n{margin-left:auto;font:500 12px/1 var(--sans);letter-spacing:.2em;opacity:.5}
 
 /* ---- hero ---- */
+/* the supplied composite is finished artwork, so it is shown entire -
+   contain, not cover, so the mark never crops on a narrow screen */
 .hero{
-  position:relative;min-height:min(88svh,820px);display:grid;place-items:center;
-  padding:8vh 2.2vw;overflow:hidden;background:#15110E;isolation:isolate;
+  background:var(--basalt);padding:0 0 clamp(26px,4vw,52px);
+  display:grid;justify-items:center;gap:clamp(22px,3vw,40px);
 }
-.hero-bg{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  filter:brightness(.46) saturate(.85);
+.hero-bg{width:100%;max-height:82svh;object-fit:contain;display:block}
+.hero-title{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;
 }
-/* a real sibling, not a pseudo-element: the screen blend has to composite
-   against this, and ::after would paint over the sign instead of under it */
-.hero-shade{
-  position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(58% 54% at 50% 46%, rgba(8,6,4,.82), rgba(8,6,4,0) 74%);
-}
-/* the sign is a lit object: screening it over the room keeps the bloom
-   and drops the black it was shot against */
-/* the supplied render is bloomed past legibility, so the traced mark is lit
-   from behind instead: same sign, but the silhouette survives */
-.hero-logo{
-  position:relative;display:grid;justify-items:center;gap:clamp(14px,2.2vw,30px);
-  width:min(46vw,460px);pointer-events:none;
-  filter:drop-shadow(0 0 22px rgba(255,244,224,.5)) drop-shadow(0 0 62px rgba(255,236,206,.34));
-}
-.hero-logo svg{width:100%;height:auto}
-.hero-logo .lock{width:84%}
-.hero-inner{position:relative;text-align:center;display:grid;justify-items:center;gap:30px}
-.hero-glyph{width:clamp(76px,9vw,126px);height:auto}
-.hero h1{
-  margin:0;font:900 clamp(46px,12.5vw,196px)/.84 var(--sans);
-  letter-spacing:-.045em;color:var(--basalt);
-}
+.hero-inner{text-align:center;display:grid;justify-items:center;gap:30px}
 .hero .sub{
-  position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;
-  font:500 clamp(11px,1.05vw,14px)/1 var(--sans);letter-spacing:.3em;color:#D8CFC4;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;
+  font:500 clamp(11px,1.05vw,14px)/1 var(--sans);letter-spacing:.3em;color:#9C938A;
 }
 .hero .zh{font-size:1.15em;letter-spacing:.34em}
 
@@ -115,7 +96,7 @@ img,svg{display:block;max-width:100%}
 .pad{padding:clamp(40px,5vw,86px) 2.2vw}
 
 /* ---- logo variation grid ---- */
-.marks{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--basalt)}
+.marks{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--basalt)}
 .mark-cell{
   aspect-ratio:4/3;display:grid;place-items:center;padding:7% 9%;position:relative;
 }
@@ -138,12 +119,6 @@ img,svg{display:block;max-width:100%}
 .sw span{font:500 11px/1.2 'Courier New',monospace;letter-spacing:.06em;opacity:.65}
 
 /* ---- typography specimen ---- */
-.spec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:end}
-.glyphrow{font:900 clamp(60px,15vw,230px)/.8 var(--sans);letter-spacing:-.05em;color:var(--basalt)}
-.scale li{list-style:none;border-top:1px solid var(--rule);padding:14px 0;display:flex;align-items:baseline;gap:18px}
-.scale{margin:0;padding:0}
-.scale .lbl{font:500 11px/1 var(--sans);letter-spacing:.14em;color:var(--slate);min-width:9ch}
-.scale .samp{font-weight:700;letter-spacing:-.02em;color:var(--basalt)}
 
 /* ---- four movements ---- */
 .movements{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
@@ -209,14 +184,6 @@ img,svg{display:block;max-width:100%}
   background:linear-gradient(transparent,rgba(16,12,10,.6));
 }
 
-/* ---- type construction ---- */
-.typeplate{background:#EFEAE0;padding:clamp(26px,4vw,64px) clamp(20px,4vw,70px);border-radius:2px}
-.typeplate svg{width:100%;height:auto}
-.anglekey{
-  display:flex;flex-wrap:wrap;gap:12px 34px;margin:26px 0 0;
-  font:500 11px/1.4 var(--sans);letter-spacing:.1em;color:var(--slate);
-}
-.anglekey b{color:var(--basalt);font-weight:700}
 
 /* ---- cups ---- */
 .cups{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
@@ -250,7 +217,7 @@ img,svg{display:block;max-width:100%}
   .run{grid-template-columns:1fr 1fr}
   .run figure:first-child{grid-column:span 2;aspect-ratio:8/5}
   .bar--top{--topbar-h:62px}
-  .duo,.spec,.cards{grid-template-columns:1fr}
+  .duo,.cards{grid-template-columns:1fr}
   .marks,.cups{grid-template-columns:1fr 1fr}
   .movements{grid-template-columns:1fr 1fr}
   .swatches{grid-template-columns:repeat(3,1fr)}
@@ -286,13 +253,9 @@ img,svg{display:block;max-width:100%}
 <main>
 
   <section class="hero">
-    <img class="hero-bg" src="work/mono-hero-room.webp" alt="" aria-hidden="true" decoding="async">
-    <div class="hero-shade" aria-hidden="true"></div>
+    <img class="hero-bg" src="work/mono-hero.webp" alt="Monolith Coffee, the mark and wordmark over the cafe counter" decoding="async">
+    <h1 class="hero-title">Monolith Coffee</h1>
     <div class="hero-inner">
-      <h1 class="hero-logo" style="margin:0" aria-label="Monolith Coffee">
-        <svg viewBox="0 0 1000.0 865.4" aria-hidden="true"><use href="#glyph" fill="#F6F1E5"/></svg>
-        <svg class="lock" viewBox="0 0 1000.0 257.8" aria-hidden="true"><use href="#lockup" fill="#F6F1E5"/></svg>
-      </h1>
       <div class="sub">
         <span>COFFEE &amp; ROASTERY</span>
         <span class="zh">四重章</span>
@@ -303,7 +266,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band band--chalk">
     <div class="wrap">
-      <div class="chapter"><span class="zh">序</span><h2>About the project</h2><span class="n">01 / 09</span></div>
+      <div class="chapter"><span class="zh">序</span><h2>About the project</h2><span class="n">01 / 08</span></div>
       <p class="lede">A coffee bar that serves its menu the way a quartet plays — one body of work, released in four movements.</p>
       <p class="body">Monolith is a specialty shop and roastery on East Valley Boulevard in Alhambra, pouring drinks with names like Five Moons and Tiger in Tweed in a room where boulders hang over an ash counter. The identity takes the name literally and then softens it: the mark is a figure leaning into a stone, the same weight as the rocks in the room. Every surface — cup, poster, feed — carries that one silhouette.</p>
       <p class="body">The system is bilingual by default. English carries the drink, Chinese carries the chapter, and neither is a translation of the other.</p>
@@ -319,7 +282,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band">
     <div class="wrap">
-      <div class="chapter"><span class="zh">印</span><h2>The mark</h2><span class="n">02 / 09</span></div>
+      <div class="chapter"><span class="zh">印</span><h2>The mark</h2><span class="n">02 / 08</span></div>
       <p class="body" style="max-width:62ch;margin-bottom:46px">A figure and a boulder in the same silhouette: a round head set off the shoulder, a back that falls away in one long curve, legs cut from the mass as negative space. Drawn in a single weight with no outline, so it holds at a 40px avatar and at the scale of a shopfront. The head reads as a stone from across the street and as a face once you are at the counter.</p>
     </div>
     <div class="marks">
@@ -331,10 +294,6 @@ img,svg{display:block;max-width:100%}
         <svg viewBox="0 0 1000.0 865.4" style="max-height:72%"><use href="#glyph" fill="#E9E4DA"/></svg>
         <figcaption>REVERSED</figcaption>
       </figure>
-      <figure class="mark-cell mc-apricot">
-        <svg viewBox="0 0 1000.0 865.4" style="max-height:72%"><use href="#glyph" fill="#241F1B"/></svg>
-        <figcaption>ON CREMA</figcaption>
-      </figure>
       <figure class="mark-cell mc-clay">
         <svg viewBox="0 0 1000.0 257.8" style="max-height:34%"><use href="#lockup" fill="#E9E4DA"/></svg>
         <figcaption>WORDMARK</figcaption>
@@ -345,14 +304,6 @@ img,svg{display:block;max-width:100%}
           <use href="#lockup" fill="#241F1B" x="350" y="88" width="620" height="160"/>
         </svg>
         <figcaption>HORIZONTAL LOCKUP</figcaption>
-      </figure>
-      <figure class="mark-cell mc-grad">
-        <svg viewBox="0 0 200 200" style="max-height:80%">
-          <circle cx="100" cy="100" r="98" fill="none" stroke="#241F1B" stroke-width="2.5"/>
-          <use href="#glyph" fill="#241F1B" x="52" y="58" width="96" height="83"/>
-          <text x="100" y="176" text-anchor="middle" font-family="Archivo,Arial" font-size="10.5" font-weight="600" letter-spacing="2" fill="#241F1B">ALHAMBRA CA</text>
-        </svg>
-        <figcaption>SEAL</figcaption>
       </figure>
     </div>
   </section>
@@ -374,7 +325,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band band--basalt">
     <div class="wrap">
-      <div class="chapter"><span class="zh">色</span><h2>Palette</h2><span class="n">03 / 09</span></div>
+      <div class="chapter"><span class="zh">色</span><h2>Palette</h2><span class="n">03 / 08</span></div>
       <p class="body" style="max-width:60ch;margin-bottom:44px">Basalt and chalk do the structural work. The warm half of the range is pulled off the counter — crema, clay, the oat-milk haze in a cup held to the window — and only ever appears as a gradient field, never as a flat fill.</p>
     </div>
     <div class="swatches">
@@ -387,58 +338,9 @@ img,svg{display:block;max-width:100%}
     </div>
   </section>
 
-  <section class="band band--chalk">
-    <div class="wrap">
-      <div class="chapter"><span class="zh">字</span><h2>Typography</h2><span class="n">04 / 09</span></div>
-      <div class="typeplate">
-        <svg viewBox="0 0 1200 430" aria-label="Construction drawing of the Monolith wordmark showing its stroke angles and alignment">
-          <defs>
-            <pattern id="grain" width="4" height="4" patternUnits="userSpaceOnUse">
-              <rect width="4" height="4" fill="#EFEAE0"/><circle cx="1.2" cy="1.2" r=".4" fill="#241F1B" opacity=".045"/>
-            </pattern>
-          </defs>
-          <rect width="1200" height="430" fill="url(#grain)"/>
-          <g stroke="#241F1B" stroke-width="1" opacity=".42">
-            <line x1="60" y1="132.0" x2="1140" y2="132.0"/>
-            <line x1="60" y1="146.0" x2="1140" y2="146.0"/>
-            <line x1="60" y1="224.0" x2="1140" y2="224.0"/>
-            <line x1="60" y1="234.0" x2="1140" y2="234.0"/>
-            <line x1="150" y1="34" x2="150" y2="396"/>
-            <line x1="1050.0" y1="34" x2="1050.0" y2="396"/>
-          </g>
-          <line x1="60" y1="183.0" x2="1140" y2="183.0" stroke="#9E3B36" stroke-width="1.3" stroke-dasharray="7 5"/>
-          <g fill="#9E3B36" font-family="Archivo,Helvetica,Arial,sans-serif" font-weight="600">
-            <text x="150" textLength="900" lengthAdjust="spacing"><tspan y="222.0" font-size="109.1">M</tspan><tspan y="234.0" font-size="142.7">O</tspan><tspan y="222.0" font-size="109.1">N</tspan><tspan y="234.0" font-size="142.7">O</tspan><tspan y="234.0" font-size="142.7">L</tspan><tspan y="222.0" font-size="109.1">I</tspan><tspan y="234.0" font-size="142.7">T</tspan><tspan y="222.0" font-size="109.1">H</tspan></text>
-            <text x="600.0" y="338.0" text-anchor="middle" font-size="92" letter-spacing="3">coffee</text>
-          </g>
-          <circle cx="328.5" cy="183.0" r="51.5" fill="none" stroke="#241F1B" stroke-width="1.3" opacity=".75"/>
-          <g stroke="#241F1B" stroke-width="1.5" fill="none">
-            <path d="M156.0 224.0 H260.0"/><path d="M156.0 224.0 L237.4 173.1"/>
-            <path d="M218.0 224.0 A 62 62 0 0 0 208.6 191.1"/>
-            <path d="M422.0 224.0 H526.0"/><path d="M422.0 224.0 L505.1 176.0"/>
-            <path d="M484.0 224.0 A 62 62 0 0 0 475.7 193.0"/>
-          </g>
-          <g font-family="Archivo,Arial" font-size="16" font-weight="700" fill="#241F1B">
-            <text x="268.0" y="218.0">32°</text>
-            <text x="534.0" y="218.0">30°</text>
-            <text x="328.5" y="266.5" text-anchor="middle">1 : 1</text>
-          </g>
-        </svg>
-      </div>
-      <div class="anglekey">
-        <span><b>32°</b> M outer stroke</span>
-        <span><b>30°</b> N diagonal</span>
-        <span><b>1 : 1</b> O is a true circle</span>
-        <span><b>3</b> heights, centred on one axis</span>
-      </div>
-      </div>
-      <p class="body" style="margin-top:38px">The wordmark is drawn rather than set. Its obliques hold to roughly 32° on the M and 30° on the N, the O is a true circle, and the letters are centred on a common axis rather than seated on a baseline — M, N, I and H sit short against the full-height L and T, with the O overshooting both. The angles above are measured off the artwork, not assigned to it. Menu and campaign copy are set in a plain grotesque so the drawn letterforms stay the only voice.</p>
-    </div>
-  </section>
-
   <section class="band">
     <div class="wrap">
-      <div class="chapter"><span class="zh">章</span><h2>In four movements</h2><span class="n">05 / 09</span></div>
+      <div class="chapter"><span class="zh">章</span><h2>In four movements</h2><span class="n">04 / 08</span></div>
       <p class="body" style="max-width:60ch;margin-bottom:44px">The seasonal menu arrives four times a year. Each movement takes a gradient, a Chinese name, and a number that holds its place in the sequence.</p>
     </div>
     <div class="movements">
@@ -478,7 +380,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band band--chalk">
     <div class="wrap">
-      <div class="chapter"><span class="zh">網</span><h2>Campaign &amp; feed</h2><span class="n">06 / 09</span></div>
+      <div class="chapter"><span class="zh">網</span><h2>Campaign &amp; feed</h2><span class="n">05 / 08</span></div>
       <div class="ig">
         <div class="ig-head">
           <div class="ig-av">
@@ -518,7 +420,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band band--basalt">
     <div class="wrap">
-      <div class="chapter"><span class="zh">器</span><h2>Cup &amp; counter</h2><span class="n">07 / 09</span></div>
+      <div class="chapter"><span class="zh">器</span><h2>Cup &amp; counter</h2><span class="n">06 / 08</span></div>
       <p class="body" style="max-width:60ch;margin-bottom:44px">Three sizes, one lockup, printed a single colour. The glyph sits low on the cup so it clears the sleeve and still reads when the cup is held at the table.</p>
     </div>
     <div class="cups">
@@ -551,7 +453,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band" style="background:linear-gradient(160deg,#D9CFC0,#B9AEA2)">
     <div class="wrap">
-      <div class="chapter"><span class="zh">片</span><h2>Card &amp; menu slip</h2><span class="n">08 / 09</span></div>
+      <div class="chapter"><span class="zh">片</span><h2>Card &amp; menu slip</h2><span class="n">07 / 08</span></div>
       <div class="cards">
         <div class="card">
           <div class="top">
@@ -574,7 +476,7 @@ img,svg{display:block;max-width:100%}
 
   <section class="band band--chalk">
     <div class="wrap">
-      <div class="chapter"><span class="zh">室</span><h2>The room</h2><span class="n">09 / 09</span></div>
+      <div class="chapter"><span class="zh">室</span><h2>The room</h2><span class="n">08 / 08</span></div>
       <p class="body" style="max-width:62ch;margin-bottom:44px">Boulders hang over a pale ash counter; the bar curves around a bed of stone. The identity was drawn to sit in this room — a single mass, leaning, at rest.</p>
     </div>
     <div class="room">
