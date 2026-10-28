@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Monolith Coffee — Keyun Xiao</title>
-<meta name="description" content="Packaging, brand design, marketing and film for Monolith Coffee, a specialty coffee shop and roastery in Alhambra, California.">
+<title>Marketing design clients — Keyun Xiao</title>
+<meta name="description" content="Client work by Keyun Xiao: website design for Macu Tea, and packaging, brand design, marketing and film for Monolith Coffee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Karla:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --sand:#d9cfbf;        /* every word on this page */
@@ -16,6 +16,11 @@
   --ink:#17201e;
   --rule:#cfd6d0;
   --sans:'Archivo',Arial,Helvetica,sans-serif;
+  /* Macu runs on its own type and colour, taken off the live site */
+  --macu-red:#E51F1F;
+  --macu-ink:#121212;
+  --macu-tan:#B29575;
+  --karla:'Karla','Noto Sans TC',Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--veil);color:var(--sand);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -57,6 +62,56 @@ a{color:inherit;text-decoration:none}
 .ig svg{width:clamp(26px,2.6vw,36px);height:auto;flex:none}
 .ig span{font:400 clamp(12px,1.25vw,17px)/1 var(--sans);letter-spacing:.14em;word-break:break-all}
 
+
+/* ================= MACU TEA ================= */
+.macu{background:#fff;color:var(--macu-ink);font-family:var(--karla);padding:clamp(54px,7vw,110px) 2.2vw clamp(40px,5vw,80px)}
+.macu-in{max-width:1080px;margin:0 auto}
+.macu-head{display:grid;justify-items:center;gap:clamp(22px,3vw,38px);text-align:center}
+.macu-logo{width:min(26vw,190px);height:auto}
+.macu-scope{font:600 clamp(11px,1.15vw,15px)/1.4 var(--karla);letter-spacing:.22em;color:var(--macu-red)}
+.macu-tag{margin:0;font:800 clamp(28px,5.4vw,74px)/.98 var(--karla);letter-spacing:-.02em;text-transform:uppercase}
+.macu-tag em{font-style:normal;color:var(--macu-red)}
+.macu-copy{margin:clamp(26px,3.4vw,46px) 0 0;display:grid;gap:14px}
+.macu-copy p{margin:0;font:400 clamp(14px,1.25vw,17px)/1.6 var(--karla);color:#3a3a3a}
+.macu-link{display:inline-block;margin-top:6px;font:600 clamp(12px,1.15vw,15px)/1 var(--karla);letter-spacing:.14em;color:var(--macu-red);border-bottom:2px solid var(--macu-red);padding-bottom:4px}
+
+.macu-rule{display:flex;align-items:center;gap:16px;margin:clamp(40px,5vw,78px) 0 clamp(22px,2.6vw,34px)}
+.macu-rule h3{margin:0;font:800 clamp(13px,1.25vw,17px)/1 var(--karla);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.macu-rule span{flex:1;height:2px;background:var(--macu-red)}
+.macu-rule .hash{color:var(--macu-red)}
+
+/* identity: palette + type */
+.macu-id{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,48px);align-items:start}
+.sw-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sw-row div{aspect-ratio:1/1.25;border-radius:3px;display:flex;align-items:flex-end;padding:10px;font:600 10px/1.3 var(--karla);letter-spacing:.06em}
+.type-spec p{margin:0 0 10px}
+.type-spec .big{font:800 clamp(30px,4.2vw,58px)/1 var(--karla);letter-spacing:-.02em}
+.type-spec .zh{font:500 clamp(22px,3vw,40px)/1.2 'Noto Sans TC',var(--karla);letter-spacing:.06em}
+.type-spec .note{font:400 12px/1.5 var(--karla);color:#6b6b6b;letter-spacing:.04em}
+
+/* functions */
+.macu-fn{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#e6e6e6;border:2px solid var(--macu-ink)}
+.fn{background:#fff;padding:clamp(16px,1.9vw,26px);display:grid;gap:7px;align-content:start}
+.fn b{font:700 clamp(13px,1.15vw,16px)/1.25 var(--karla)}
+.fn span{font:400 clamp(12px,1vw,14px)/1.5 var(--karla);color:#5c5c5c}
+.fn i{font-style:normal;font:700 11px/1 var(--karla);letter-spacing:.14em;color:var(--macu-red)}
+
+/* sitemap */
+.macu-map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.node{border:2px solid var(--macu-ink);padding:12px 14px;display:grid;gap:6px}
+.node b{font:700 12px/1.2 var(--karla);letter-spacing:.1em;text-transform:uppercase}
+.node span{font:400 12px/1.5 var(--karla);color:#5c5c5c}
+
+@media(max-width:860px){
+  .macu-id{grid-template-columns:1fr}
+  .macu-map{grid-template-columns:repeat(2,1fr)}
+  .macu-fn{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .macu-fn{grid-template-columns:1fr}
+  .sw-row{grid-template-columns:repeat(2,1fr)}
+}
+
 /* ---- the work, flush under the sheet ---- */
 .collage{display:block;width:100%;height:auto}
 
@@ -76,7 +131,7 @@ a{color:inherit;text-decoration:none}
 
 <header class="bar bar--top">
   <a class="wordmark" href="index.html" data-cursor="home"><img src="marks/logo.png" alt="Keyun Xiao"></a>
-  <nav><span class="here">Monolith</span><a href="ux-ui.html">Mock projects</a><a href="photography.html">Photography</a><a href="index.html">Index</a></nav>
+  <nav><span class="here">Clients</span><a href="ux-ui.html">Mock projects</a><a href="photography.html">Photography</a><a href="index.html">Index</a></nav>
 </header>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -84,6 +139,66 @@ a{color:inherit;text-decoration:none}
 </svg>
 
 <main>
+  <section class="macu">
+    <div class="macu-in">
+
+      <div class="macu-head">
+        <img class="macu-logo" src="work/macu-logo.webp" alt="Macu Tea">
+        <div class="macu-scope">WEBSITE DESIGN &amp; ART DIRECTION</div>
+        <h2 class="macu-tag">Fruit <em>your</em> life</h2>
+      </div>
+
+      <div class="macu-copy">
+        <p>Macu Tea (麻古茶坊) is one of Taiwan&rsquo;s largest fruit-tea chains, pressing whole fruit to order and brewing seasonal leaf from contracted Taiwanese farms. The site carries the brand into English for a North American audience while keeping the Traditional Chinese original intact.</p>
+        <p>The design runs on three things: a single red, a hashtag that turns every section into a label, and photography of the drink at full bleed. Everything else is set in Karla and gets out of the way.</p>
+        <a class="macu-link" href="https://www.macutea.com.tw/en/" target="_blank" rel="noopener">macutea.com.tw</a>
+      </div>
+
+      <div class="macu-rule"><h3><span class="hash">#</span>&nbsp;Identity</h3><span></span></div>
+      <div class="macu-id">
+        <div>
+          <div class="sw-row">
+            <div style="background:#E51F1F;color:#fff">#E51F1F</div>
+            <div style="background:#121212;color:#fff">#121212</div>
+            <div style="background:#B29575;color:#fff">#B29575</div>
+            <div style="background:#fff;color:#121212;box-shadow:inset 0 0 0 2px #e2e2e2">#FFFFFF</div>
+          </div>
+          <p class="type-spec note" style="margin-top:14px">One red does all the work — headings, hashtags, rules and buttons. Black for the body, a warm tan for tea-side imagery, white for everything underneath.</p>
+        </div>
+        <div class="type-spec">
+          <p class="big">Karla</p>
+          <p class="zh">思源黑體 · 麻古茶坊</p>
+          <p class="note">Karla sets the Latin at 400 through 800; Noto Sans TC carries the Traditional Chinese. Headings run uppercase and tight, labels run letterspaced behind a hash.</p>
+        </div>
+      </div>
+
+      <div class="macu-rule"><h3><span class="hash">#</span>&nbsp;What the site does</h3><span></span></div>
+      <div class="macu-fn">
+        <div class="fn"><i>01</i><b>Bilingual by route</b><span>Parallel English and Traditional Chinese trees, switched from the header, so neither reads as a translation of the other.</span></div>
+        <div class="fn"><i>02</i><b>Drink catalogue</b><span>Eight series — Tea Latte, Cheese Tea, Fruit Pulp, Milk Tea, Fruit Juice, Classic Tea, Drinking Dessert and Macu Specialties.</span></div>
+        <div class="fn"><i>03</i><b>Seasonal feature</b><span>A recommend module on the home page that swaps with the season, running the drink, its build and a hero shot.</span></div>
+        <div class="fn"><i>04</i><b>Store finder</b><span>Branch directory for locating a shop across Taiwan and the US.</span></div>
+        <div class="fn"><i>05</i><b>Newsroom, four streams</b><span>News, Event, Media and CSR, filtered from one index and dated.</span></div>
+        <div class="fn"><i>06</i><b>Franchise funnel</b><span>Recruitment pages and an enquiry path for prospective franchisees, with phone and WhatsApp.</span></div>
+        <div class="fn"><i>07</i><b>Franchisee login</b><span>A gated FA area, kept separate from the public brand site.</span></div>
+        <div class="fn"><i>08</i><b>US menu</b><span>A dedicated menu for the North American stores, separate from the Taiwan catalogue.</span></div>
+        <div class="fn"><i>09</i><b>Live Instagram feed</b><span>The social grid pulled onto the home page so the site never looks older than the account.</span></div>
+      </div>
+
+      <div class="macu-rule"><h3><span class="hash">#</span>&nbsp;Structure</h3><span></span></div>
+      <div class="macu-map">
+        <div class="node"><b>Home</b><span>Feature drink, series, news, social</span></div>
+        <div class="node"><b>Drinks</b><span>Catalogue by series · US menu</span></div>
+        <div class="node"><b>Fresh</b><span>Sourcing and the fruit story</span></div>
+        <div class="node"><b>Store</b><span>Branch finder</span></div>
+        <div class="node"><b>News</b><span>News · Event · Media · CSR</span></div>
+        <div class="node"><b>Join us</b><span>Franchise · FA login</span></div>
+        <div class="node"><b>Contact</b><span>Kaohsiung HQ · US office</span></div>
+      </div>
+
+    </div>
+  </section>
+
   <section class="sheet">
     <img class="sheet-bg" src="work/mono-bg.webp" alt="" aria-hidden="true" decoding="async">
     <div class="sheet-veil" aria-hidden="true"></div>
