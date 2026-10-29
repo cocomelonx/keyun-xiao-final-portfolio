@@ -140,12 +140,20 @@ a{color:inherit;text-decoration:none}
 
 
 /* ================= SICHUAN IMPRESSION ================= */
-.si{background:var(--si-sand);color:var(--si-navy);font-family:var(--basic);font-weight:300;padding:clamp(54px,7vw,106px) 2.2vw clamp(48px,6vw,96px)}
+.si{background:var(--si-sand);color:var(--si-navy);font-family:var(--basic);font-weight:300;padding:0 0 clamp(48px,6vw,96px)}
+.si-in{padding:0 2.2vw}
+.si-hero{
+  position:relative;isolation:isolate;overflow:hidden;background:#2a2a2a;
+  min-height:clamp(300px,40vw,560px);display:grid;place-items:center;
+  padding:clamp(44px,6vw,92px) 2.2vw;margin-bottom:clamp(34px,4.4vw,72px);
+}
+.si-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.si-hero-veil{position:absolute;inset:0;background:#3B3B3B;opacity:.6}
 .si-in{max-width:1080px;margin:0 auto}
-.si-head{display:grid;justify-items:center;gap:clamp(18px,2.4vw,30px);text-align:center;padding-bottom:clamp(30px,4vw,56px)}
+.si-head{position:relative;display:grid;justify-items:center;gap:clamp(16px,2.2vw,28px);text-align:center}
 .si-logo{width:min(56vw,460px);height:auto}
-.si-scope{font:500 clamp(11px,1.1vw,14px)/1.4 var(--basic);letter-spacing:.22em;color:var(--si-red)}
-.si-copy{display:grid;gap:15px;max-width:76ch}
+.si-scope{font:500 clamp(11px,1.1vw,14px)/1.4 var(--basic);letter-spacing:.22em;color:#F0E6E0}
+.si-copy{display:grid;gap:15px}
 .si-copy p{margin:0;font:300 clamp(14px,1.25vw,17.5px)/1.65 var(--basic)}
 .si-copy strong{font-weight:500}
 .si-link{justify-self:start;margin-top:4px;font:500 clamp(12px,1.1vw,14.5px)/1 var(--basic);letter-spacing:.12em;color:var(--si-red);border-bottom:1px solid var(--si-red);padding-bottom:4px}
@@ -315,12 +323,17 @@ a{color:inherit;text-decoration:none}
   <img class="collage" src="work/mono-collage.webp" alt="Six campaign pieces: Black Sesame Basque, the mark over the unfinished room, Seasonal Highlights menu, Breeze matcha and hojicha, the cupping counter, and the Now open later notice." decoding="async">
 
   <section class="si">
-    <div class="si-in">
-
+    <div class="si-hero">
+      <img class="si-hero-bg" src="work/si-hero.webp" alt="" aria-hidden="true" decoding="async">
+      <div class="si-hero-veil" aria-hidden="true"></div>
       <div class="si-head">
-        <img class="si-logo" src="work/si-logo.webp" alt="Sichuan Impression 錦城里">
+        <img class="si-logo" src="work/si-logo-rev.webp" alt="Sichuan Impression 錦城里">
         <div class="si-scope">WEBSITE DESIGN &amp; FRONT-END DEVELOPMENT</div>
       </div>
+    </div>
+
+    <div class="si-in">
+
 
       <div class="si-copy">
         <p>Sichuan Impression — 锦城里, Jin Cheng Li — has been cooking Sichuan food in Los Angeles since 2014. The name joins 锦城, an old name for Chengdu, with 里, meaning alley: the crowded lanes where that city does its eating. The founder grew up in a family of Chengdu restaurateurs and brought the cooking to LA, where it now runs across four restaurants and has held a place in the Michelin Guide six years running, with a Bib Gourmand in 2025 and Alhambra&rsquo;s Restaurant of the Year in 2024.</p>
