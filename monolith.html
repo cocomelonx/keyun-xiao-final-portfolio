@@ -143,6 +143,12 @@ a{color:inherit;text-decoration:none}
 }
 
 
+/* hero logos link out to the live site / account */
+.logo .logo-link{display:grid;justify-items:center;gap:clamp(10px,1.5vw,20px);width:100%}
+.logo-link{display:inline-block;position:relative;transition:opacity .25s ease,transform .25s ease}
+.logo-link:hover,.logo-link:focus-visible{opacity:.82;transform:translateY(-2px)}
+.logo-link:focus-visible{outline:2px solid currentColor;outline-offset:10px}
+
 /* ================= SICHUAN IMPRESSION ================= */
 .si{background:var(--si-sand);color:var(--si-navy);font-family:var(--basic);font-weight:300;padding:0 0 clamp(48px,6vw,96px)}
 .si-in{padding:0 2.2vw}
@@ -207,6 +213,7 @@ a{color:inherit;text-decoration:none}
 .ws-copy{display:grid;gap:15px}
 .ws-copy p{margin:0;font:300 clamp(14px,1.25vw,17.5px)/1.68 var(--poppins)}
 .ws-copy strong{font-weight:500}
+.ws-links{display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
 .ws-link{justify-self:start;margin-top:4px;font:500 clamp(12px,1.1vw,14.5px)/1 var(--poppins);letter-spacing:.12em;color:var(--ws-blue);border-bottom:1px solid var(--ws-blue);padding-bottom:4px}
 
 .ws-rule{display:flex;align-items:center;gap:16px;margin:clamp(40px,5vw,76px) 0 clamp(20px,2.4vw,32px)}
@@ -276,7 +283,7 @@ a{color:inherit;text-decoration:none}
       <div class="macu-hero-wash" aria-hidden="true"></div>
       <div class="macu-hero-in">
         <div class="macu-head">
-          <img class="macu-logo" src="work/macu-logo.webp" alt="Macu Tea">
+          <a class="logo-link" href="https://www.macutea.com.tw/en/" target="_blank" rel="noopener" aria-label="Open macutea.com.tw in a new tab"><img class="macu-logo" src="work/macu-logo.webp" alt="Macu Tea"></a>
           <div class="macu-scope">WEBSITE DESIGN &amp; PACKAGING DESIGN</div>
         </div>
       </div>
@@ -350,8 +357,10 @@ a{color:inherit;text-decoration:none}
 
     <div class="sheet-in">
       <h1 class="logo" style="margin:0" aria-label="Monolith Coffee">
-        <svg viewBox="0 0 1000.0 865.4" aria-hidden="true"><use href="#glyph" fill="#F2EDE1"/></svg>
-        <svg class="lock" viewBox="0 0 1000.0 257.8" aria-hidden="true"><use href="#lockup" fill="#F2EDE1"/></svg>
+        <a class="logo-link" href="https://www.instagram.com/monolithcoffeela/?hl=en" target="_blank" rel="noopener" aria-label="Open the Monolith Coffee Instagram in a new tab">
+          <svg viewBox="0 0 1000.0 865.4" aria-hidden="true"><use href="#glyph" fill="#F2EDE1"/></svg>
+          <svg class="lock" viewBox="0 0 1000.0 257.8" aria-hidden="true"><use href="#lockup" fill="#F2EDE1"/></svg>
+        </a>
       </h1>
 
       <div class="meta">
@@ -383,7 +392,7 @@ a{color:inherit;text-decoration:none}
       <img class="si-hero-bg" src="work/si-hero.webp" alt="" aria-hidden="true" decoding="async">
       <div class="si-hero-veil" aria-hidden="true"></div>
       <div class="si-head">
-        <img class="si-logo" src="work/si-logo-rev.webp" alt="Sichuan Impression 錦城里">
+        <a class="logo-link" href="https://sichuanimpressions.com/" target="_blank" rel="noopener" aria-label="Open sichuanimpressions.com in a new tab"><img class="si-logo" src="work/si-logo-rev.webp" alt="Sichuan Impression 錦城里"></a>
         <div class="si-scope">WEBSITE DESIGN &amp; FRONT-END DEVELOPMENT</div>
       </div>
     </div>
@@ -439,7 +448,7 @@ a{color:inherit;text-decoration:none}
       <img class="ws-hero-bg" src="work/wistem-hero.webp" alt="" aria-hidden="true" decoding="async">
       <div class="ws-hero-veil" aria-hidden="true"></div>
       <div class="ws-head">
-        <img class="ws-logo" src="work/wistem-logo.webp" alt="Women in STEM">
+        <a class="logo-link" href="https://womeninstem.org/" target="_blank" rel="noopener" aria-label="Open womeninstem.org in a new tab"><img class="ws-logo" src="work/wistem-logo.webp" alt="Women in STEM"></a>
         <div class="ws-scope">WEBSITE DESIGN &amp; MARKETING GRAPHIC DESIGN</div>
       </div>
     </div>
@@ -450,7 +459,7 @@ a{color:inherit;text-decoration:none}
         <p>Women in STEM (WiSTEM) is a volunteer-run nonprofit founded in 2017 &mdash; by students, for students &mdash; on a mission to fight gender inequality in the sciences by getting teenage girls engaged early and keeping them there. Its tagline, <em>a social approach to a fact-oriented field</em>, is also its method: the work happens through chapters students start in their own schools, mentor pairings, speaker nights and local outreach rather than one-off visits.</p>
         <p>It now runs on three pillars &mdash; education, mentorship and outreach &mdash; carried by a student ambassador network that spans US states and a growing international list, with a resource hub of leadership applications, chapter funding and teaching tools behind it. Donations are tax-deductible through its fiscal sponsor, The Hack Foundation, a 501(c)(3).</p>
         <p><strong>Redesigned and maintained the organization&rsquo;s website, updating content and fixing front-end bugs in HTML, CSS, and JavaScript. Designed 180+ graphics and social media posts in Canva and Photoshop, increasing social media presence from ~2,000 to ~6,000 and interactions by 200% within a year.</strong></p>
-        <a class="ws-link" href="https://womeninstem.org/" target="_blank" rel="noopener">womeninstem.org</a>
+        <div class="ws-links"><a class="ws-link" href="https://womeninstem.org/" target="_blank" rel="noopener">womeninstem.org</a><a class="ws-link" href="https://www.instagram.com/womeninstemorg/" target="_blank" rel="noopener">@womeninstemorg</a></div>
       </div>
 
       <div class="ws-stats">
